@@ -19,7 +19,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
     on<SignInFormEvent>((SignInFormEvent event, Emitter<SignInFormState> emit) {
       on<EmailChanged>(
-        (event, emit) {
+        (EmailChanged event, Emitter<SignInFormState> emit) {
           emit(state.copyWith(
             emailAddress: EmailAddress(event.emailStr),
             authFailureOrSuccessOption: none(),
@@ -27,7 +27,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         },
       );
       on<PasswordChanged>(
-        (event, emit) {
+        (PasswordChanged event, Emitter<SignInFormState> emit) {
           emit(state.copyWith(
             password: Password(event.pwdStr),
             authFailureOrSuccessOption: none(),
@@ -35,7 +35,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         },
       );
       on<RegisterWithEmailAndPwdPressed>(
-        (event, emit) async {
+        (RegisterWithEmailAndPwdPressed event,
+            Emitter<SignInFormState> emit) async {
           _performActionOnAuthFacadeWithEmailAndPwd(
             _authFacade.registerWithEmailAndPassword,
             emit,
@@ -43,7 +44,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         },
       );
       on<SignInWithEmailAndPwdPressed>(
-        (event, emit) async {
+        (SignInWithEmailAndPwdPressed event,
+            Emitter<SignInFormState> emit) async {
           _performActionOnAuthFacadeWithEmailAndPwd(
             _authFacade.signInWithEmailAndPassword,
             emit,
@@ -51,7 +53,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
         },
       );
       on<SignInWithGooglePressed>(
-        (event, emit) async {
+        (SignInWithGooglePressed event, Emitter<SignInFormState> emit) async {
           emit(state.copyWith(
             isSubmitting: true,
             authFailureOrSuccessOption: none(),
@@ -69,8 +71,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   Future<void> _performActionOnAuthFacadeWithEmailAndPwd(
     Future<Either<AuthFailure, Unit>> Function({
-      @required EmailAddress emailAddress,
-      @required Password password,
+      required EmailAddress emailAddress,
+      required Password password,
     })
         forwadedCall,
     Emitter<SignInFormState> emit,

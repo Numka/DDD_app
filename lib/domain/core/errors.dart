@@ -1,10 +1,11 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'failures.dart';
 
-part 'errors.freezed.dart';
+class UnexpectedValueError extends Error {
+  UnexpectedValueError(this.valueFailure);
 
-@freezed
-abstract class ValueError<T> with _$ValueError<T> {
-  const factory ValueError.unexpected({
-    required String failedValue,
-  }) = Unexpected<T>;
+  final ValueFailure valueFailure;
+
+  @override
+  String toString() =>
+      Error.safeToString('UnexpectedValueError(valueFailure: $valueFailure)');
 }
