@@ -19,14 +19,17 @@ class SplashPage extends StatelessWidget {
           initial: (_) {},
           authenticated: (_) {
             print('Authenticated');
+            // TODO implement navigation to notes
           },
           unauthenticated: (_) =>
-              AutoRouter.of(context).push(const SignInRoute()),
+              AutoRouter.of(context).replaceNamed('/sign-in'),
         );
       },
       child: const Scaffold(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: Colors.black,
+          ),
         ),
       ),
     );
