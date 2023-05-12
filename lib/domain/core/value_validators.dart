@@ -17,3 +17,15 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return left(ValueFailure<String>.shortPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateBodyText(
+    String input, int maxLength) {
+  if (input.length > maxLength) {
+    return left(ValueFailure<String>.maxLengthExceeded(failedValue: input));
+  }
+  if (input.isEmpty) {
+    return left(ValueFailure<String>.emptyTextBody(failedValue: input));
+  }
+
+  return right(input);
+}

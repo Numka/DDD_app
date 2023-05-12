@@ -10,4 +10,10 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.shortPassword({
     required String failedValue,
   }) = ShortPassword<T>;
+  const factory ValueFailure.emptyTextBody({
+    required String failedValue,
+  }) = EmptyTextBody<T>;
+  const factory ValueFailure.maxLengthExceeded({
+    required String failedValue,
+  }) = MaxLengthExceeded<T>;
 }
