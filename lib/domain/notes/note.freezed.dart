@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NoteEntity {
+  UniqueId get id => throw _privateConstructorUsedError;
   NoteBodyText get noteBodyText => throw _privateConstructorUsedError;
   NoteColor get noteColor => throw _privateConstructorUsedError;
 
@@ -30,7 +31,7 @@ abstract class $NoteEntityCopyWith<$Res> {
           NoteEntity value, $Res Function(NoteEntity) then) =
       _$NoteEntityCopyWithImpl<$Res, NoteEntity>;
   @useResult
-  $Res call({NoteBodyText noteBodyText, NoteColor noteColor});
+  $Res call({UniqueId id, NoteBodyText noteBodyText, NoteColor noteColor});
 }
 
 /// @nodoc
@@ -46,10 +47,15 @@ class _$NoteEntityCopyWithImpl<$Res, $Val extends NoteEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? noteBodyText = null,
     Object? noteColor = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       noteBodyText: null == noteBodyText
           ? _value.noteBodyText
           : noteBodyText // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$_NoteEntityCopyWith<$Res>
       __$$_NoteEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({NoteBodyText noteBodyText, NoteColor noteColor});
+  $Res call({UniqueId id, NoteBodyText noteBodyText, NoteColor noteColor});
 }
 
 /// @nodoc
@@ -84,10 +90,15 @@ class __$$_NoteEntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? noteBodyText = null,
     Object? noteColor = null,
   }) {
     return _then(_$_NoteEntity(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       noteBodyText: null == noteBodyText
           ? _value.noteBodyText
           : noteBodyText // ignore: cast_nullable_to_non_nullable
@@ -102,9 +113,13 @@ class __$$_NoteEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoteEntity implements _NoteEntity {
-  const _$_NoteEntity({required this.noteBodyText, required this.noteColor});
+class _$_NoteEntity extends _NoteEntity {
+  const _$_NoteEntity(
+      {required this.id, required this.noteBodyText, required this.noteColor})
+      : super._();
 
+  @override
+  final UniqueId id;
   @override
   final NoteBodyText noteBodyText;
   @override
@@ -112,7 +127,7 @@ class _$_NoteEntity implements _NoteEntity {
 
   @override
   String toString() {
-    return 'NoteEntity(noteBodyText: $noteBodyText, noteColor: $noteColor)';
+    return 'NoteEntity(id: $id, noteBodyText: $noteBodyText, noteColor: $noteColor)';
   }
 
   @override
@@ -120,6 +135,7 @@ class _$_NoteEntity implements _NoteEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NoteEntity &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.noteBodyText, noteBodyText) ||
                 other.noteBodyText == noteBodyText) &&
             (identical(other.noteColor, noteColor) ||
@@ -127,7 +143,7 @@ class _$_NoteEntity implements _NoteEntity {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, noteBodyText, noteColor);
+  int get hashCode => Object.hash(runtimeType, id, noteBodyText, noteColor);
 
   @JsonKey(ignore: true)
   @override
@@ -136,11 +152,15 @@ class _$_NoteEntity implements _NoteEntity {
       __$$_NoteEntityCopyWithImpl<_$_NoteEntity>(this, _$identity);
 }
 
-abstract class _NoteEntity implements NoteEntity {
+abstract class _NoteEntity extends NoteEntity {
   const factory _NoteEntity(
-      {required final NoteBodyText noteBodyText,
+      {required final UniqueId id,
+      required final NoteBodyText noteBodyText,
       required final NoteColor noteColor}) = _$_NoteEntity;
+  const _NoteEntity._() : super._();
 
+  @override
+  UniqueId get id;
   @override
   NoteBodyText get noteBodyText;
   @override
