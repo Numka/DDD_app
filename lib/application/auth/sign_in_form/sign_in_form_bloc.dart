@@ -37,7 +37,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<RegisterWithEmailAndPwdPressed>(
       (RegisterWithEmailAndPwdPressed event,
           Emitter<SignInFormState> emit) async {
-        _performActionOnAuthFacadeWithEmailAndPwd(
+        await _performActionOnAuthFacadeWithEmailAndPwd(
           _authFacade.registerWithEmailAndPassword,
           emit,
         );
@@ -46,7 +46,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     on<SignInWithEmailAndPwdPressed>(
       (SignInWithEmailAndPwdPressed event,
           Emitter<SignInFormState> emit) async {
-        _performActionOnAuthFacadeWithEmailAndPwd(
+        await _performActionOnAuthFacadeWithEmailAndPwd(
           _authFacade.signInWithEmailAndPassword,
           emit,
         );
