@@ -17,10 +17,8 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) {
-            print('Authenticated');
-            // TODO implement navigation to notes
-          },
+          authenticated: (_) =>
+              AutoRouter.of(context).replaceNamed('/notes-overview'),
           unauthenticated: (_) =>
               AutoRouter.of(context).replaceNamed('/sign-in'),
         );
