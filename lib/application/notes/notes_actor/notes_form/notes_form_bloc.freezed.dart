@@ -21,7 +21,7 @@ mixin _$NotesFormEvent {
     required TResult Function(Option<NoteEntity> noteOption) initialzed,
     required TResult Function(String text) bodyUpdated,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(NoteEntity note) saved,
+    required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$NotesFormEvent {
     TResult? Function(Option<NoteEntity> noteOption)? initialzed,
     TResult? Function(String text)? bodyUpdated,
     TResult? Function(Color color)? colorChanged,
-    TResult? Function(NoteEntity note)? saved,
+    TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$NotesFormEvent {
     TResult Function(Option<NoteEntity> noteOption)? initialzed,
     TResult Function(String text)? bodyUpdated,
     TResult Function(Color color)? colorChanged,
-    TResult Function(NoteEntity note)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,7 +154,7 @@ class _$Initialzed implements Initialzed {
     required TResult Function(Option<NoteEntity> noteOption) initialzed,
     required TResult Function(String text) bodyUpdated,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(NoteEntity note) saved,
+    required TResult Function() saved,
   }) {
     return initialzed(noteOption);
   }
@@ -165,7 +165,7 @@ class _$Initialzed implements Initialzed {
     TResult? Function(Option<NoteEntity> noteOption)? initialzed,
     TResult? Function(String text)? bodyUpdated,
     TResult? Function(Color color)? colorChanged,
-    TResult? Function(NoteEntity note)? saved,
+    TResult? Function()? saved,
   }) {
     return initialzed?.call(noteOption);
   }
@@ -176,7 +176,7 @@ class _$Initialzed implements Initialzed {
     TResult Function(Option<NoteEntity> noteOption)? initialzed,
     TResult Function(String text)? bodyUpdated,
     TResult Function(Color color)? colorChanged,
-    TResult Function(NoteEntity note)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (initialzed != null) {
@@ -299,7 +299,7 @@ class _$BodyUpdated implements BodyUpdated {
     required TResult Function(Option<NoteEntity> noteOption) initialzed,
     required TResult Function(String text) bodyUpdated,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(NoteEntity note) saved,
+    required TResult Function() saved,
   }) {
     return bodyUpdated(text);
   }
@@ -310,7 +310,7 @@ class _$BodyUpdated implements BodyUpdated {
     TResult? Function(Option<NoteEntity> noteOption)? initialzed,
     TResult? Function(String text)? bodyUpdated,
     TResult? Function(Color color)? colorChanged,
-    TResult? Function(NoteEntity note)? saved,
+    TResult? Function()? saved,
   }) {
     return bodyUpdated?.call(text);
   }
@@ -321,7 +321,7 @@ class _$BodyUpdated implements BodyUpdated {
     TResult Function(Option<NoteEntity> noteOption)? initialzed,
     TResult Function(String text)? bodyUpdated,
     TResult Function(Color color)? colorChanged,
-    TResult Function(NoteEntity note)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (bodyUpdated != null) {
@@ -444,7 +444,7 @@ class _$ColorChanged implements ColorChanged {
     required TResult Function(Option<NoteEntity> noteOption) initialzed,
     required TResult Function(String text) bodyUpdated,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(NoteEntity note) saved,
+    required TResult Function() saved,
   }) {
     return colorChanged(color);
   }
@@ -455,7 +455,7 @@ class _$ColorChanged implements ColorChanged {
     TResult? Function(Option<NoteEntity> noteOption)? initialzed,
     TResult? Function(String text)? bodyUpdated,
     TResult? Function(Color color)? colorChanged,
-    TResult? Function(NoteEntity note)? saved,
+    TResult? Function()? saved,
   }) {
     return colorChanged?.call(color);
   }
@@ -466,7 +466,7 @@ class _$ColorChanged implements ColorChanged {
     TResult Function(Option<NoteEntity> noteOption)? initialzed,
     TResult Function(String text)? bodyUpdated,
     TResult Function(Color color)? colorChanged,
-    TResult Function(NoteEntity note)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (colorChanged != null) {
@@ -526,10 +526,6 @@ abstract class ColorChanged implements NotesFormEvent {
 abstract class _$$SavedCopyWith<$Res> {
   factory _$$SavedCopyWith(_$Saved value, $Res Function(_$Saved) then) =
       __$$SavedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({NoteEntity note});
-
-  $NoteEntityCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -538,58 +534,26 @@ class __$$SavedCopyWithImpl<$Res>
     implements _$$SavedCopyWith<$Res> {
   __$$SavedCopyWithImpl(_$Saved _value, $Res Function(_$Saved) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? note = null,
-  }) {
-    return _then(_$Saved(
-      null == note
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as NoteEntity,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $NoteEntityCopyWith<$Res> get note {
-    return $NoteEntityCopyWith<$Res>(_value.note, (value) {
-      return _then(_value.copyWith(note: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$Saved implements Saved {
-  const _$Saved(this.note);
-
-  @override
-  final NoteEntity note;
+  const _$Saved();
 
   @override
   String toString() {
-    return 'NotesFormEvent.saved(note: $note)';
+    return 'NotesFormEvent.saved()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$Saved &&
-            (identical(other.note, note) || other.note == note));
+        (other.runtimeType == runtimeType && other is _$Saved);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, note);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SavedCopyWith<_$Saved> get copyWith =>
-      __$$SavedCopyWithImpl<_$Saved>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -597,9 +561,9 @@ class _$Saved implements Saved {
     required TResult Function(Option<NoteEntity> noteOption) initialzed,
     required TResult Function(String text) bodyUpdated,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(NoteEntity note) saved,
+    required TResult Function() saved,
   }) {
-    return saved(note);
+    return saved();
   }
 
   @override
@@ -608,9 +572,9 @@ class _$Saved implements Saved {
     TResult? Function(Option<NoteEntity> noteOption)? initialzed,
     TResult? Function(String text)? bodyUpdated,
     TResult? Function(Color color)? colorChanged,
-    TResult? Function(NoteEntity note)? saved,
+    TResult? Function()? saved,
   }) {
-    return saved?.call(note);
+    return saved?.call();
   }
 
   @override
@@ -619,11 +583,11 @@ class _$Saved implements Saved {
     TResult Function(Option<NoteEntity> noteOption)? initialzed,
     TResult Function(String text)? bodyUpdated,
     TResult Function(Color color)? colorChanged,
-    TResult Function(NoteEntity note)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
-      return saved(note);
+      return saved();
     }
     return orElse();
   }
@@ -667,11 +631,7 @@ class _$Saved implements Saved {
 }
 
 abstract class Saved implements NotesFormEvent {
-  const factory Saved(final NoteEntity note) = _$Saved;
-
-  NoteEntity get note;
-  @JsonKey(ignore: true)
-  _$$SavedCopyWith<_$Saved> get copyWith => throw _privateConstructorUsedError;
+  const factory Saved() = _$Saved;
 }
 
 /// @nodoc

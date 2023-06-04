@@ -33,6 +33,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const NotesOverviewPage(),
       );
     },
+    NoteFormRoute.name: (routeData) {
+      final args = routeData.argsAs<NoteFormRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: NoteFormPage(
+          key: args.key,
+          editedNote: args.editedNote,
+        ),
+      );
+    },
   };
 }
 
@@ -76,4 +86,42 @@ class NotesOverviewRoute extends PageRouteInfo<void> {
   static const String name = 'NotesOverviewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NoteFormPage]
+class NoteFormRoute extends PageRouteInfo<NoteFormRouteArgs> {
+  NoteFormRoute({
+    Key? key,
+    required NoteEntity? editedNote,
+    List<PageRouteInfo>? children,
+  }) : super(
+          NoteFormRoute.name,
+          args: NoteFormRouteArgs(
+            key: key,
+            editedNote: editedNote,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'NoteFormRoute';
+
+  static const PageInfo<NoteFormRouteArgs> page =
+      PageInfo<NoteFormRouteArgs>(name);
+}
+
+class NoteFormRouteArgs {
+  const NoteFormRouteArgs({
+    this.key,
+    required this.editedNote,
+  });
+
+  final Key? key;
+
+  final NoteEntity? editedNote;
+
+  @override
+  String toString() {
+    return 'NoteFormRouteArgs{key: $key, editedNote: $editedNote}';
+  }
 }

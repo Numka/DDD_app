@@ -2,10 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/auth/auth_bloc.dart';
-import '../../application/notes/notes_actor/notes_actor_bloc.dart';
-import '../../application/notes/notes_watcher/notes_watcher_bloc.dart';
-import '../../injection.dart';
+import '../../../application/auth/auth_bloc.dart';
+import '../../../application/notes/notes_actor/notes_actor_bloc.dart';
+import '../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
+import '../../../domain/notes/note.dart';
+import '../../../injection.dart';
+import '../../routes/router.dart';
+import 'widgets/note_overview_body.dart';
 
 @RoutePage()
 class NotesOverviewPage extends StatelessWidget {
@@ -28,8 +31,11 @@ class NotesOverviewPage extends StatelessWidget {
           BlocListener<AuthBloc, AuthState>(
             listener: (context, state) {
               state.maybeMap(
-                unauthenticated: (_) =>
-                    AutoRouter.of(context).replaceNamed('/sign-in'),
+                unauthenticated: (_) {
+                  AutoRouter.of(context).pushNativeRoute(NoteFormRoute(
+                    editedNote: null,
+                  ) as Route<Object?>);
+                },
                 orElse: () {},
               );
             },
@@ -62,9 +68,7 @@ class NotesOverviewPage extends StatelessWidget {
             },
             child: const Icon(Icons.add),
           ),
-          body: Container(
-            child: const Text('notes overview'),
-          ),
+          body: const NotesOverviewBody(),
         ),
       ),
     );

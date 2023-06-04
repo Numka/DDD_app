@@ -3,7 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
+import '../../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
+import 'note_card.dart';
+import 'note_failure_card.dart';
 
 class NotesOverviewBody extends StatelessWidget {
   const NotesOverviewBody({super.key});
@@ -20,20 +22,16 @@ class NotesOverviewBody extends StatelessWidget {
             itemBuilder: (context, index) {
               final note = state.notes[index];
 
-              return Container(
-                color: Colors.green,
-                width: 100,
-                height: 50,
+              return NoteCard(
+                note: note,
               );
             },
             itemCount: state.notes.length,
           );
         },
-        loadFailure: (_) {
-          return Container(
-            color: Colors.red,
-            width: 100,
-            height: 50,
+        loadFailure: (state) {
+          return NoteFailureCard(
+            noteFailure: state.failure,
           );
         },
       );

@@ -6,5 +6,5 @@ class NotesFormEvent with _$NotesFormEvent {
       Initialzed;
   const factory NotesFormEvent.bodyUpdated(String text) = BodyUpdated;
   const factory NotesFormEvent.colorChanged(Color color) = ColorChanged;
-  const factory NotesFormEvent.saved(NoteEntity note) = Saved;
+  const factory NotesFormEvent.saved() = Saved;
 }

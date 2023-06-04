@@ -54,8 +54,8 @@ class NotesFormBloc extends Bloc<NotesFormEvent, NotesFormState> {
       ));
 
       failureOrSuccess = state.isEditing
-          ? await _noteRepository.updateNote(event.note)
-          : await _noteRepository.createNote(event.note);
+          ? await _noteRepository.updateNote(state.note)
+          : await _noteRepository.createNote(state.note);
 
       emit(state.copyWith(
         isSaving: false,

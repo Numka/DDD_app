@@ -19,7 +19,7 @@ part 'notes_watcher_state.dart';
 class NotesWatcherBloc extends Bloc<NotesWatcherEvent, NotesWatcherState> {
   final INoteRepository _noteRepository;
 
-  late StreamSubscription<Either<NoteFailure, List<NoteEntity>>>
+  StreamSubscription<Either<NoteFailure, List<NoteEntity>>>?
       _noteStreamSubscription;
 
   NotesWatcherBloc(
@@ -28,7 +28,7 @@ class NotesWatcherBloc extends Bloc<NotesWatcherEvent, NotesWatcherState> {
     on<StartedWatching>((event, emit) async {
       emit(const NotesWatcherState.loadInProgress());
 
-      await _noteStreamSubscription.cancel();
+      await _noteStreamSubscription?.cancel();
       _noteStreamSubscription =
           _noteRepository.watchNotes().listen((failureOrNotes) {
         add(NotesRecieved(failureOrNotes));
