@@ -32,9 +32,7 @@ class NotesOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 unauthenticated: (_) {
-                  AutoRouter.of(context).pushNativeRoute(NoteFormRoute(
-                    editedNote: null,
-                  ) as Route<Object?>);
+                  AutoRouter.of(context).replaceNamed('/sign-in');
                 },
                 orElse: () {},
               );
@@ -64,7 +62,9 @@ class NotesOverviewPage extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // TODO: nav to noteform
+              AutoRouter.of(context).push(NoteFormRoute(
+                editedNote: null,
+              ));
             },
             child: const Icon(Icons.add),
           ),

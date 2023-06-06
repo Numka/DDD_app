@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../domain/core/errors.dart';
 import '../../domain/notes/i_notes_repository.dart';
 import '../../domain/notes/note.dart';
 import '../../domain/notes/notes_failure.dart';
@@ -54,6 +55,8 @@ class NoteRepository implements INoteRepository {
       } else {
         return left(const NoteFailure.unexpected());
       }
+    } on UnexpectedValueError catch (_) {
+      return left(const NoteFailure.unexpected());
     }
   }
 
@@ -74,6 +77,8 @@ class NoteRepository implements INoteRepository {
       } else {
         return left(const NoteFailure.unexpected());
       }
+    } on UnexpectedValueError catch (_) {
+      return left(const NoteFailure.unexpected());
     }
   }
 

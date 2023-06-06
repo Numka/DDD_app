@@ -9,6 +9,8 @@ import '../../../application/notes/notes_actor/notes_form/notes_form_bloc.dart';
 import '../../../domain/notes/note.dart';
 import '../../../injection.dart';
 import '../../routes/router.dart';
+import 'widgets/body_field_widget.dart';
+import 'widgets/color_field_widget.dart';
 
 @RoutePage()
 class NoteFormPage extends StatelessWidget {
@@ -44,7 +46,7 @@ class NoteFormPage extends StatelessWidget {
           return Stack(
             children: [
               const NoteFormPageScaffold(),
-              SavingInProgressOverlay(isSaving: state.isSaving)
+              SavingInProgressOverlay(isSaving: state.isSaving),
             ],
           );
         },
@@ -113,11 +115,29 @@ class NoteFormPageScaffold extends StatelessWidget {
             onPressed: () {
               context.read<NotesFormBloc>().add(const NotesFormEvent.saved());
             },
-            icon: Icon(Icons.check),
+            icon: const Icon(Icons.check),
           ),
         ],
       ),
-      body: Text('Form'),
+      body: BlocBuilder<NotesFormBloc, NotesFormState>(
+        buildWhen: (prev, curr) =>
+            prev.showErrorMessages != curr.showErrorMessages,
+        builder: (context, state) {
+          return Form(
+            autovalidateMode: state.showErrorMessages
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const BodyField(),
+                  const ColorField(),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

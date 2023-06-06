@@ -16,7 +16,7 @@ abstract class ValueObject<T> {
   T getOrCrash() {
     return value.fold(
       (f) => throw UnexpectedValueError(f),
-      (r) => r,
+      id,
     );
   }
 

@@ -22,9 +22,9 @@ class NoteCard extends StatelessWidget {
       color: note.noteColor.getOrCrash(),
       child: InkWell(
         onTap: () {
-          AutoRouter.of(context).pushNativeRoute(NoteFormRoute(
+          AutoRouter.of(context).push(NoteFormRoute(
             editedNote: note,
-          ) as Route<Object?>);
+          ));
         },
         onLongPress: () {
           final noteActorBloc = context.read<NotesActorBloc>();
