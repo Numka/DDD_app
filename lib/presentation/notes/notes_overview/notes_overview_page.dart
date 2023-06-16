@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/notes/notes_actor/notes_actor_bloc.dart';
 import '../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
-import '../../../domain/notes/note.dart';
 import '../../../injection.dart';
 import '../../routes/router.dart';
 import 'widgets/note_overview_body.dart';
@@ -42,7 +41,7 @@ class NotesOverviewPage extends StatelessWidget {
             listener: (context, state) {
               state.maybeMap(
                 deleteFailure: (deleteFailure) {
-                  // TODO: add flushbar to explain error
+                  // TODO(numinor): add flushbar to explain error
                   // deleteFailure.failure.map(unexpected: unexpected, insufficientPermissions: insufficientPermissions, unableToCreate: unableToCreate, unableToUpdate: unableToUpdate, unableToDelete: unableToDelete)
                 },
                 orElse: () {},

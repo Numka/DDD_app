@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/notes/notes_actor/notes_form/notes_form_bloc.dart';
@@ -31,7 +29,7 @@ class NoteFormPage extends StatelessWidget {
           state.savedOrFailureOption.fold(() {}, (either) {
             either.fold(
               (failure) {
-                // TODO: implement flushbar
+                // TODO(numinor): implement flushbar
               },
               (_) {
                 AutoRouter.of(context).popUntil(

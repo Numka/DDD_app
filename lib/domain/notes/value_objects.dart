@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:dartz/dartz.dart';
-import 'package:dddapplication/domain/core/value_validators.dart';
 
 import '../core/failures.dart';
 import '../core/value_objects.dart';
+import '../core/value_validators.dart';
 
 class NoteBodyText extends ValueObject<String> {
   factory NoteBodyText(String input) {

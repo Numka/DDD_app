@@ -1,9 +1,11 @@
+// ignore_for_file: invalid_annotation_target, sort_constructors_first
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dddapplication/domain/notes/note.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/value_objects.dart';
+import '../../domain/notes/note.dart';
 import '../../domain/notes/value_objects.dart';
 
 part 'note_dto.freezed.dart';
@@ -11,14 +13,14 @@ part 'note_dto.g.dart';
 
 @freezed
 abstract class NoteDto implements _$NoteDto {
-  const NoteDto._();
-
   const factory NoteDto({
     @JsonKey(ignore: true) String? id,
     required String body,
     required int color,
     @ServerTimestampConverter() required FieldValue serverTimeStamp,
   }) = _NoteDto;
+
+  const NoteDto._();
 
   factory NoteDto.fromDomain(NoteEntity note) {
     return NoteDto(

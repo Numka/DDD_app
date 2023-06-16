@@ -1,3 +1,5 @@
+// ignore_for_file: sort_constructors_first
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

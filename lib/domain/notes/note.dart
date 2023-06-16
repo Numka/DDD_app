@@ -7,13 +7,13 @@ part 'note.freezed.dart';
 
 @freezed
 abstract class NoteEntity with _$NoteEntity {
-  const NoteEntity._();
-
   const factory NoteEntity({
     required UniqueId id,
     required NoteBodyText noteBodyText,
     required NoteColor noteColor,
   }) = _NoteEntity;
+
+  const NoteEntity._();
 
   factory NoteEntity.empty() => NoteEntity(
         id: UniqueId(),
