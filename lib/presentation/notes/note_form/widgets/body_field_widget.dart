@@ -33,7 +33,7 @@ class _BodyFieldState extends State<BodyField> {
           decoration: const InputDecoration(
             labelText: 'Note',
           ),
-          minLines: 5,
+          minLines: 7,
           maxLines: null,
           maxLength: NoteBodyText.maxLength,
           onChanged: (value) => context

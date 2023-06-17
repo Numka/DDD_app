@@ -44,10 +44,10 @@ class SignInForm extends StatelessWidget {
           child: ListView(
             children: [
               const SizedBox(height: 16),
-              const Text(
-                '📝',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 100),
+              Image.asset(
+                'assets/images/icon_notes.png',
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.height / 3,
               ),
               const SizedBox(height: 16),
               TextFormField(

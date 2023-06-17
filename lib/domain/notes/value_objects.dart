@@ -27,7 +27,7 @@ class NoteColor extends ValueObject<Color> {
   const NoteColor._(this.value);
 
   static const List<Color> predefinedColors = [
-    Color(0xfffafafa), // canvas
+    Color(0xfff9d162), // canvas
     Color(0xfffa8072), // salmon
     Color(0xfffedc56), // mustard
     Color(0xffd0f0c0), // tea

@@ -17,6 +17,7 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 4,
       color: note.noteColor.getOrCrash(),
       child: InkWell(
         onTap: () {
@@ -29,7 +30,7 @@ class NoteCard extends StatelessWidget {
           _showDelectionDialog(context, noteActorBloc);
         },
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Text(

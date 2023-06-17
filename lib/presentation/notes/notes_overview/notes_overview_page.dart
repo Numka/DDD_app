@@ -59,13 +59,31 @@ class NotesOverviewPage extends StatelessWidget {
               },
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              AutoRouter.of(context).push(NoteFormRoute(
-                editedNote: null,
-              ));
-            },
-            child: const Icon(Icons.add),
+          floatingActionButton: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                heroTag: 'btn1',
+                onPressed: () {
+                  AutoRouter.of(context).push(NoteFormRoute(
+                    editedNote: null,
+                  ));
+                },
+                child: const Icon(
+                  Icons.add,
+                ),
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              FloatingActionButton(
+                heroTag: 'btn2',
+                onPressed: () {},
+                child: const Icon(
+                  Icons.color_lens,
+                ),
+              ),
+            ],
           ),
           body: const NotesOverviewBody(),
         ),

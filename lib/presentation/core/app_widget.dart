@@ -25,8 +25,9 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light().copyWith(
           colorScheme: ThemeData().colorScheme.copyWith(
-                primary: Colors.green[800],
-                secondary: Colors.blueAccent,
+                primary: const Color.fromRGBO(10, 86, 136, 1),
+                secondary:
+                    const Color.fromRGBO(243, 149, 79, 1), // 243, 149, 79
               ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
