@@ -19,6 +19,7 @@ mixin _$NotesWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() startedWatching,
+    required TResult Function(Color color) startedWatchingFilteredByColor,
     required TResult Function(
             Either<NoteFailure, List<NoteEntity>> failureOrnotes)
         notesRecieved,
@@ -27,6 +28,7 @@ mixin _$NotesWatcherEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startedWatching,
+    TResult? Function(Color color)? startedWatchingFilteredByColor,
     TResult? Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
   }) =>
@@ -34,6 +36,7 @@ mixin _$NotesWatcherEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startedWatching,
+    TResult Function(Color color)? startedWatchingFilteredByColor,
     TResult Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
     required TResult orElse(),
@@ -42,18 +45,24 @@ mixin _$NotesWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(StartedWatching value) startedWatching,
+    required TResult Function(StartedWatchingFilteredByColor value)
+        startedWatchingFilteredByColor,
     required TResult Function(NotesRecieved value) notesRecieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartedWatching value)? startedWatching,
+    TResult? Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult? Function(NotesRecieved value)? notesRecieved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedWatching value)? startedWatching,
+    TResult Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult Function(NotesRecieved value)? notesRecieved,
     required TResult orElse(),
   }) =>
@@ -117,6 +126,7 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() startedWatching,
+    required TResult Function(Color color) startedWatchingFilteredByColor,
     required TResult Function(
             Either<NoteFailure, List<NoteEntity>> failureOrnotes)
         notesRecieved,
@@ -128,6 +138,7 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startedWatching,
+    TResult? Function(Color color)? startedWatchingFilteredByColor,
     TResult? Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
   }) {
@@ -138,6 +149,7 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startedWatching,
+    TResult Function(Color color)? startedWatchingFilteredByColor,
     TResult Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
     required TResult orElse(),
@@ -152,6 +164,8 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(StartedWatching value) startedWatching,
+    required TResult Function(StartedWatchingFilteredByColor value)
+        startedWatchingFilteredByColor,
     required TResult Function(NotesRecieved value) notesRecieved,
   }) {
     return startedWatching(this);
@@ -161,6 +175,8 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartedWatching value)? startedWatching,
+    TResult? Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult? Function(NotesRecieved value)? notesRecieved,
   }) {
     return startedWatching?.call(this);
@@ -170,6 +186,8 @@ class _$StartedWatching implements StartedWatching {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedWatching value)? startedWatching,
+    TResult Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult Function(NotesRecieved value)? notesRecieved,
     required TResult orElse(),
   }) {
@@ -182,6 +200,159 @@ class _$StartedWatching implements StartedWatching {
 
 abstract class StartedWatching implements NotesWatcherEvent {
   const factory StartedWatching() = _$StartedWatching;
+}
+
+/// @nodoc
+abstract class _$$StartedWatchingFilteredByColorCopyWith<$Res> {
+  factory _$$StartedWatchingFilteredByColorCopyWith(
+          _$StartedWatchingFilteredByColor value,
+          $Res Function(_$StartedWatchingFilteredByColor) then) =
+      __$$StartedWatchingFilteredByColorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Color color});
+}
+
+/// @nodoc
+class __$$StartedWatchingFilteredByColorCopyWithImpl<$Res>
+    extends _$NotesWatcherEventCopyWithImpl<$Res,
+        _$StartedWatchingFilteredByColor>
+    implements _$$StartedWatchingFilteredByColorCopyWith<$Res> {
+  __$$StartedWatchingFilteredByColorCopyWithImpl(
+      _$StartedWatchingFilteredByColor _value,
+      $Res Function(_$StartedWatchingFilteredByColor) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? color = freezed,
+  }) {
+    return _then(_$StartedWatchingFilteredByColor(
+      freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StartedWatchingFilteredByColor
+    implements StartedWatchingFilteredByColor {
+  const _$StartedWatchingFilteredByColor(this.color);
+
+  @override
+  final Color color;
+
+  @override
+  String toString() {
+    return 'NotesWatcherEvent.startedWatchingFilteredByColor(color: $color)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StartedWatchingFilteredByColor &&
+            const DeepCollectionEquality().equals(other.color, color));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartedWatchingFilteredByColorCopyWith<_$StartedWatchingFilteredByColor>
+      get copyWith => __$$StartedWatchingFilteredByColorCopyWithImpl<
+          _$StartedWatchingFilteredByColor>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() startedWatching,
+    required TResult Function(Color color) startedWatchingFilteredByColor,
+    required TResult Function(
+            Either<NoteFailure, List<NoteEntity>> failureOrnotes)
+        notesRecieved,
+  }) {
+    return startedWatchingFilteredByColor(color);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? startedWatching,
+    TResult? Function(Color color)? startedWatchingFilteredByColor,
+    TResult? Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
+        notesRecieved,
+  }) {
+    return startedWatchingFilteredByColor?.call(color);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? startedWatching,
+    TResult Function(Color color)? startedWatchingFilteredByColor,
+    TResult Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
+        notesRecieved,
+    required TResult orElse(),
+  }) {
+    if (startedWatchingFilteredByColor != null) {
+      return startedWatchingFilteredByColor(color);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartedWatching value) startedWatching,
+    required TResult Function(StartedWatchingFilteredByColor value)
+        startedWatchingFilteredByColor,
+    required TResult Function(NotesRecieved value) notesRecieved,
+  }) {
+    return startedWatchingFilteredByColor(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(StartedWatching value)? startedWatching,
+    TResult? Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
+    TResult? Function(NotesRecieved value)? notesRecieved,
+  }) {
+    return startedWatchingFilteredByColor?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartedWatching value)? startedWatching,
+    TResult Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
+    TResult Function(NotesRecieved value)? notesRecieved,
+    required TResult orElse(),
+  }) {
+    if (startedWatchingFilteredByColor != null) {
+      return startedWatchingFilteredByColor(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartedWatchingFilteredByColor implements NotesWatcherEvent {
+  const factory StartedWatchingFilteredByColor(final Color color) =
+      _$StartedWatchingFilteredByColor;
+
+  Color get color;
+  @JsonKey(ignore: true)
+  _$$StartedWatchingFilteredByColorCopyWith<_$StartedWatchingFilteredByColor>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -250,6 +421,7 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() startedWatching,
+    required TResult Function(Color color) startedWatchingFilteredByColor,
     required TResult Function(
             Either<NoteFailure, List<NoteEntity>> failureOrnotes)
         notesRecieved,
@@ -261,6 +433,7 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startedWatching,
+    TResult? Function(Color color)? startedWatchingFilteredByColor,
     TResult? Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
   }) {
@@ -271,6 +444,7 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startedWatching,
+    TResult Function(Color color)? startedWatchingFilteredByColor,
     TResult Function(Either<NoteFailure, List<NoteEntity>> failureOrnotes)?
         notesRecieved,
     required TResult orElse(),
@@ -285,6 +459,8 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(StartedWatching value) startedWatching,
+    required TResult Function(StartedWatchingFilteredByColor value)
+        startedWatchingFilteredByColor,
     required TResult Function(NotesRecieved value) notesRecieved,
   }) {
     return notesRecieved(this);
@@ -294,6 +470,8 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartedWatching value)? startedWatching,
+    TResult? Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult? Function(NotesRecieved value)? notesRecieved,
   }) {
     return notesRecieved?.call(this);
@@ -303,6 +481,8 @@ class _$NotesRecieved implements NotesRecieved {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedWatching value)? startedWatching,
+    TResult Function(StartedWatchingFilteredByColor value)?
+        startedWatchingFilteredByColor,
     TResult Function(NotesRecieved value)? notesRecieved,
     required TResult orElse(),
   }) {

@@ -33,7 +33,8 @@ class NoteColor extends ValueObject<Color> {
     Color(0xffd0f0c0), // tea
     Color(0xfffca3b7), // flamingo
     Color(0xff997950), // tortilla
-    Color(0xfffffdd0), // cream
+    Color(0xfffffdd0),
+    Color(0xff6bc6a5), // cream
   ];
 
   @override

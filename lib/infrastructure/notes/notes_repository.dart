@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
@@ -7,6 +9,7 @@ import '../../domain/core/errors.dart';
 import '../../domain/notes/i_notes_repository.dart';
 import '../../domain/notes/note.dart';
 import '../../domain/notes/notes_failure.dart';
+import '../../domain/notes/value_objects.dart';
 import '../core/firestore_helpers.dart';
 import 'note_dto.dart';
 
@@ -26,6 +29,32 @@ class NoteRepository implements INoteRepository {
           (snapshot) => right<NoteFailure, List<NoteEntity>>(
             snapshot.docs
                 .map((doc) => NoteDto.fromFirestore(doc).toDomain())
+                .toList(),
+          ),
+        )
+        .onErrorReturnWith((error, _) {
+      if (error is FirebaseException &&
+          error.message!.contains('PERMISSION_DENIED')) {
+        return left(const NoteFailure.insufficientPermissions());
+      } else {
+        return left(const NoteFailure.unexpected());
+      }
+    });
+  }
+
+  @override
+  Stream<Either<NoteFailure, List<NoteEntity>>> watchNotesFilteredByColor(
+      Color color) async* {
+    final userDoc = await _firebaseFirestore.userDocument();
+    yield* userDoc.noteCollection
+        .orderBy('serverTimeStamp', descending: true)
+        .snapshots()
+        .map(
+          (snapshot) => right<NoteFailure, List<NoteEntity>>(
+            snapshot.docs
+                .map((doc) => NoteDto.fromFirestore(doc).toDomain())
+                .toList()
+                .where((note) => note.noteColor == NoteColor(color))
                 .toList(),
           ),
         )

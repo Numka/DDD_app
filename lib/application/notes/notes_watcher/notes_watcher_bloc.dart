@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/animation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -31,6 +32,16 @@ class NotesWatcherBloc extends Bloc<NotesWatcherEvent, NotesWatcherState> {
       await _noteStreamSubscription?.cancel();
       _noteStreamSubscription =
           _noteRepository.watchNotes().listen((failureOrNotes) {
+        add(NotesRecieved(failureOrNotes));
+      });
+    });
+    on<StartedWatchingFilteredByColor>((event, emit) async {
+      emit(const NotesWatcherState.loadInProgress());
+
+      await _noteStreamSubscription?.cancel();
+      _noteStreamSubscription = _noteRepository
+          .watchNotesFilteredByColor(event.color)
+          .listen((failureOrNotes) {
         add(NotesRecieved(failureOrNotes));
       });
     });
