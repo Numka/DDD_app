@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dddapplication">
    <application
-        android:label="dddapplication"
+        android:label="ColorNotes"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
