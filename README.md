@@ -4,7 +4,7 @@ An application that follows Domain Driven Design and clean architecture principl
 
 Приложение, которое следует принципам Domain Driven Design и чистой архитектуры. Можно сказать, что архитектура "слишком чистая" в некоторых местах, это сделано намеренно, даже если некоторые варианты дизайна не нужны.
 
-
+<img src="https://github.com/Numka/DDD_app/assets/26344390/35d8a6c1-1fe0-4aae-829b-2efd06b1f128" width="400">
 ![Screenshot_2023-07-18-19-41-54-787_com example dddapplication](https://github.com/Numka/DDD_app/assets/26344390/35d8a6c1-1fe0-4aae-829b-2efd06b1f128 | width=300)
 ![6f06d61d-d7f1-4d91-bf5f-26009d66f2fc](https://github.com/Numka/DDD_app/assets/26344390/35b61ec5-8981-48d5-944c-87a5e0e933af | width=300)
 ![ae18c0a2-7834-4d3a-880c-24beb83b467f](https://github.com/Numka/DDD_app/assets/26344390/9b6027ad-bf33-4bac-a340-14649244f073 | width=300)
