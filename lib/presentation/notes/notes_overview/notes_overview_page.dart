@@ -54,7 +54,7 @@ class NotesOverviewPage extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Notes'),
             leading: IconButton(
-              icon: const Icon(Icons.exit_to_app),
+              icon: const Icon(Icons.logout),
               onPressed: () {
                 context.read<AuthBloc>().add(const AuthEvent.signedOut());
               },
@@ -79,6 +79,7 @@ class NotesOverviewPage extends StatelessWidget {
                   width: 8,
                 ),
                 FloatingActionButton.small(
+                  tooltip: 'Filter',
                   heroTag: 'btn2',
                   onPressed: () {
                     final notesWatcherBloc = context.read<NotesWatcherBloc>();

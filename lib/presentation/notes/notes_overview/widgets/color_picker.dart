@@ -33,60 +33,83 @@ class _ColorPickerState extends State<ColorPicker> {
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
       alignment: Alignment.center,
-      child: Container(
-        height: MediaQuery.of(context).size.height / 2.5,
-        width: MediaQuery.of(context).size.height * 0.8,
-        decoration: BoxDecoration(
-          color: Colors.black12,
-          shape: BoxShape.circle,
-          border: Border.all(color: Colors.white12, width: 2),
-        ),
-        child: Stack(
-          fit: StackFit.passthrough,
-          children: [
-            ...aligmentsForDialog.map((element) {
-              final int itemIndex = aligmentsForDialog.indexOf(element);
-              final Color itemColor = NoteColor.predefinedColors[itemIndex];
-              return Align(
-                alignment: element,
-                child: GestureDetector(
-                  onTap: () {
-                    widget.notesWatcherBloc.add(
-                      NotesWatcherEvent.startedWatchingFilteredByColor(
-                          itemColor),
-                    );
-                    Navigator.pop(context);
-                  },
-                  child: Material(
-                    color: itemColor,
-                    shape: const CircleBorder(),
-                    child: const SizedBox(
-                      width: 50,
-                      height: 50,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height / 2.5,
+            width: MediaQuery.of(context).size.height * 0.8,
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.white12, width: 2),
+            ),
+            child: Stack(
+              fit: StackFit.passthrough,
+              children: [
+                ...aligmentsForDialog.map((element) {
+                  final int itemIndex = aligmentsForDialog.indexOf(element);
+                  final Color itemColor = NoteColor.predefinedColors[itemIndex];
+                  return Align(
+                    alignment: element,
+                    child: GestureDetector(
+                      onTap: () {
+                        widget.notesWatcherBloc.add(
+                          NotesWatcherEvent.startedWatchingFilteredByColor(itemColor),
+                        );
+                        Navigator.pop(context);
+                      },
+                      child: Material(
+                        color: itemColor,
+                        shape: const CircleBorder(),
+                        child: const SizedBox(
+                          width: 50,
+                          height: 50,
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+                Align(
+                  child: GestureDetector(
+                    onTap: () {
+                      widget.notesWatcherBloc.add(const NotesWatcherEvent.startedWatching());
+                      Navigator.pop(context);
+                    },
+                    child: const Material(
+                      color: Color(0xFFeaddff),
+                      shape: CircleBorder(),
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            'All',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              );
-            }),
-            Align(
-              child: GestureDetector(
-                onTap: () {
-                  widget.notesWatcherBloc
-                      .add(const NotesWatcherEvent.startedWatching());
-                  Navigator.pop(context);
-                },
-                child: const Material(
-                  shape: CircleBorder(),
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Icon(Icons.color_lens),
-                  ),
-                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const Card(
+            color: Color(0xFFeaddff),
+            elevation: 4,
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Filter by color',
+                style: TextStyle(fontSize: 18),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

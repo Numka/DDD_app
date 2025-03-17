@@ -43,7 +43,7 @@ class SignInForm extends StatelessWidget {
               children: [
                 const SizedBox(height: 16),
                 Image.asset(
-                  'assets/images/icon_notes.png',
+                  'assets/images/app_icon.png',
                   width: MediaQuery.of(context).size.width / 3,
                   height: MediaQuery.of(context).size.height / 3,
                 ),
@@ -110,7 +110,7 @@ class SignInForm extends StatelessWidget {
                     context.read<SignInFormBloc>().add(const SignInFormEvent.signInWithGooglePressed());
                   },
                   style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all(Colors.lightBlue),
+                    backgroundColor: WidgetStateProperty.all(Colors.lightBlue),
                   ),
                   child: const Text(
                     'Sign in with GOOGLE',
