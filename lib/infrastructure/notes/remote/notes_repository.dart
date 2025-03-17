@@ -5,12 +5,12 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../domain/core/errors.dart';
-import '../../domain/notes/i_notes_repository.dart';
-import '../../domain/notes/note.dart';
-import '../../domain/notes/notes_failure.dart';
-import '../../domain/notes/value_objects.dart';
-import '../core/firestore_helpers.dart';
+import '../../../domain/core/errors.dart';
+import '../../../domain/notes/i_notes_repository.dart';
+import '../../../domain/notes/note.dart';
+import '../../../domain/notes/notes_failure.dart';
+import '../../../domain/notes/value_objects.dart';
+import '../../core/firestore_helpers.dart';
 import 'note_dto.dart';
 
 @LazySingleton(as: INoteRepository)
@@ -27,14 +27,11 @@ class NoteRepository implements INoteRepository {
         .snapshots()
         .map(
           (snapshot) => right<NoteFailure, List<NoteEntity>>(
-            snapshot.docs
-                .map((doc) => NoteDto.fromFirestore(doc).toDomain())
-                .toList(),
+            snapshot.docs.map((doc) => NoteDto.fromFirestore(doc).toDomain()).toList(),
           ),
         )
         .onErrorReturnWith((error, _) {
-      if (error is FirebaseException &&
-          error.message!.contains('PERMISSION_DENIED')) {
+      if (error is FirebaseException && error.message!.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermissions());
       } else {
         return left(const NoteFailure.unexpected());
@@ -43,8 +40,7 @@ class NoteRepository implements INoteRepository {
   }
 
   @override
-  Stream<Either<NoteFailure, List<NoteEntity>>> watchNotesFilteredByColor(
-      Color color) async* {
+  Stream<Either<NoteFailure, List<NoteEntity>>> watchNotesFilteredByColor(Color color) async* {
     final userDoc = await _firebaseFirestore.userDocument();
     yield* userDoc.noteCollection
         .orderBy('serverTimeStamp', descending: true)
@@ -59,8 +55,7 @@ class NoteRepository implements INoteRepository {
           ),
         )
         .onErrorReturnWith((error, _) {
-      if (error is FirebaseException &&
-          error.message!.contains('PERMISSION_DENIED')) {
+      if (error is FirebaseException && error.message!.contains('PERMISSION_DENIED')) {
         return left(const NoteFailure.insufficientPermissions());
       } else {
         return left(const NoteFailure.unexpected());

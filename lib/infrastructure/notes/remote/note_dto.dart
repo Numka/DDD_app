@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/core/value_objects.dart';
-import '../../domain/notes/note.dart';
-import '../../domain/notes/value_objects.dart';
+import '../../../domain/core/value_objects.dart';
+import '../../../domain/notes/note.dart';
+import '../../../domain/notes/value_objects.dart';
 
 part 'note_dto.freezed.dart';
 part 'note_dto.g.dart';
@@ -39,12 +39,10 @@ abstract class NoteDto implements _$NoteDto {
     );
   }
 
-  factory NoteDto.fromJson(Map<String, dynamic> json) =>
-      _$NoteDtoFromJson(json);
+  factory NoteDto.fromJson(Map<String, dynamic> json) => _$NoteDtoFromJson(json);
 
   factory NoteDto.fromFirestore(DocumentSnapshot doc) {
-    return NoteDto.fromJson(doc.data()! as Map<String, dynamic>)
-        .copyWith(id: doc.id);
+    return NoteDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
   }
 }
 
