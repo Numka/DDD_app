@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/notes/notes_actor/notes_actor_bloc.dart';
 import '../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
-import '../../../domain/notes/value_objects.dart';
 import '../../../injection.dart';
 import '../../routes/router.dart';
 import 'widgets/color_picker.dart';

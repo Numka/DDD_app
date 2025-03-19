@@ -22,8 +22,7 @@ class NoteFormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<NotesFormBloc>()
-        ..add(NotesFormEvent.initialzed(optionOf(editedNote))),
+      create: (context) => getIt<NotesFormBloc>()..add(NotesFormEvent.initialzed(optionOf(editedNote))),
       child: BlocConsumer<NotesFormBloc, NotesFormState>(
         listener: (context, state) {
           state.savedOrFailureOption.fold(() {}, (either) {
@@ -118,18 +117,15 @@ class NoteFormPageScaffold extends StatelessWidget {
         ],
       ),
       body: BlocBuilder<NotesFormBloc, NotesFormState>(
-        buildWhen: (prev, curr) =>
-            prev.showErrorMessages != curr.showErrorMessages,
+        buildWhen: (prev, curr) => prev.showErrorMessages != curr.showErrorMessages,
         builder: (context, state) {
           return Form(
-            autovalidateMode: state.showErrorMessages
-                ? AutovalidateMode.always
-                : AutovalidateMode.disabled,
-            child: SingleChildScrollView(
+            autovalidateMode: state.showErrorMessages ? AutovalidateMode.always : AutovalidateMode.disabled,
+            child: const SingleChildScrollView(
               child: Column(
                 children: [
-                  const BodyField(),
-                  const ColorField(),
+                  BodyField(),
+                  ColorField(),
                 ],
               ),
             ),

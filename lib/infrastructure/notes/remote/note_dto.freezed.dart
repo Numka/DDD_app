@@ -12,7 +12,7 @@ part of 'note_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 NoteDto _$NoteDtoFromJson(Map<String, dynamic> json) {
   return _NoteDto.fromJson(json);
@@ -84,10 +84,10 @@ class _$NoteDtoCopyWithImpl<$Res, $Val extends NoteDto>
 }
 
 /// @nodoc
-abstract class _$$_NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
-  factory _$$_NoteDtoCopyWith(
-          _$_NoteDto value, $Res Function(_$_NoteDto) then) =
-      __$$_NoteDtoCopyWithImpl<$Res>;
+abstract class _$$NoteDtoImplCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
+  factory _$$NoteDtoImplCopyWith(
+          _$NoteDtoImpl value, $Res Function(_$NoteDtoImpl) then) =
+      __$$NoteDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -98,10 +98,11 @@ abstract class _$$_NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NoteDtoCopyWithImpl<$Res>
-    extends _$NoteDtoCopyWithImpl<$Res, _$_NoteDto>
-    implements _$$_NoteDtoCopyWith<$Res> {
-  __$$_NoteDtoCopyWithImpl(_$_NoteDto _value, $Res Function(_$_NoteDto) _then)
+class __$$NoteDtoImplCopyWithImpl<$Res>
+    extends _$NoteDtoCopyWithImpl<$Res, _$NoteDtoImpl>
+    implements _$$NoteDtoImplCopyWith<$Res> {
+  __$$NoteDtoImplCopyWithImpl(
+      _$NoteDtoImpl _value, $Res Function(_$NoteDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +113,7 @@ class __$$_NoteDtoCopyWithImpl<$Res>
     Object? color = null,
     Object? serverTimeStamp = null,
   }) {
-    return _then(_$_NoteDto(
+    return _then(_$NoteDtoImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -135,16 +136,16 @@ class __$$_NoteDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NoteDto extends _NoteDto {
-  const _$_NoteDto(
+class _$NoteDtoImpl extends _NoteDto {
+  const _$NoteDtoImpl(
       {@JsonKey(ignore: true) this.id,
       required this.body,
       required this.color,
       @ServerTimestampConverter() required this.serverTimeStamp})
       : super._();
 
-  factory _$_NoteDto.fromJson(Map<String, dynamic> json) =>
-      _$$_NoteDtoFromJson(json);
+  factory _$NoteDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NoteDtoImplFromJson(json);
 
   @override
   @JsonKey(ignore: true)
@@ -163,10 +164,10 @@ class _$_NoteDto extends _NoteDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NoteDto &&
+            other is _$NoteDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.body, body) || other.body == body) &&
             (identical(other.color, color) || other.color == color) &&
@@ -182,12 +183,12 @@ class _$_NoteDto extends _NoteDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NoteDtoCopyWith<_$_NoteDto> get copyWith =>
-      __$$_NoteDtoCopyWithImpl<_$_NoteDto>(this, _$identity);
+  _$$NoteDtoImplCopyWith<_$NoteDtoImpl> get copyWith =>
+      __$$NoteDtoImplCopyWithImpl<_$NoteDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NoteDtoToJson(
+    return _$$NoteDtoImplToJson(
       this,
     );
   }
@@ -195,15 +196,14 @@ class _$_NoteDto extends _NoteDto {
 
 abstract class _NoteDto extends NoteDto {
   const factory _NoteDto(
-      {@JsonKey(ignore: true)
-          final String? id,
+      {@JsonKey(ignore: true) final String? id,
       required final String body,
       required final int color,
       @ServerTimestampConverter()
-          required final FieldValue serverTimeStamp}) = _$_NoteDto;
+      required final FieldValue serverTimeStamp}) = _$NoteDtoImpl;
   const _NoteDto._() : super._();
 
-  factory _NoteDto.fromJson(Map<String, dynamic> json) = _$_NoteDto.fromJson;
+  factory _NoteDto.fromJson(Map<String, dynamic> json) = _$NoteDtoImpl.fromJson;
 
   @override
   @JsonKey(ignore: true)
@@ -217,6 +217,6 @@ abstract class _NoteDto extends NoteDto {
   FieldValue get serverTimeStamp;
   @override
   @JsonKey(ignore: true)
-  _$$_NoteDtoCopyWith<_$_NoteDto> get copyWith =>
+  _$$NoteDtoImplCopyWith<_$NoteDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

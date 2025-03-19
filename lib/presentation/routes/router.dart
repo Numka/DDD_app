@@ -14,7 +14,7 @@ part 'router.gr.dart';
 
 @injectable
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   RouteType get defaultRouteType => const RouteType.material();
 

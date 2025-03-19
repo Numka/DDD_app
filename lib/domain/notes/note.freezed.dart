@@ -12,7 +12,7 @@ part of 'note.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NoteEntity {
@@ -69,22 +69,22 @@ class _$NoteEntityCopyWithImpl<$Res, $Val extends NoteEntity>
 }
 
 /// @nodoc
-abstract class _$$_NoteEntityCopyWith<$Res>
+abstract class _$$NoteEntityImplCopyWith<$Res>
     implements $NoteEntityCopyWith<$Res> {
-  factory _$$_NoteEntityCopyWith(
-          _$_NoteEntity value, $Res Function(_$_NoteEntity) then) =
-      __$$_NoteEntityCopyWithImpl<$Res>;
+  factory _$$NoteEntityImplCopyWith(
+          _$NoteEntityImpl value, $Res Function(_$NoteEntityImpl) then) =
+      __$$NoteEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({UniqueId id, NoteBodyText noteBodyText, NoteColor noteColor});
 }
 
 /// @nodoc
-class __$$_NoteEntityCopyWithImpl<$Res>
-    extends _$NoteEntityCopyWithImpl<$Res, _$_NoteEntity>
-    implements _$$_NoteEntityCopyWith<$Res> {
-  __$$_NoteEntityCopyWithImpl(
-      _$_NoteEntity _value, $Res Function(_$_NoteEntity) _then)
+class __$$NoteEntityImplCopyWithImpl<$Res>
+    extends _$NoteEntityCopyWithImpl<$Res, _$NoteEntityImpl>
+    implements _$$NoteEntityImplCopyWith<$Res> {
+  __$$NoteEntityImplCopyWithImpl(
+      _$NoteEntityImpl _value, $Res Function(_$NoteEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_NoteEntityCopyWithImpl<$Res>
     Object? noteBodyText = null,
     Object? noteColor = null,
   }) {
-    return _then(_$_NoteEntity(
+    return _then(_$NoteEntityImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,8 @@ class __$$_NoteEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoteEntity extends _NoteEntity {
-  const _$_NoteEntity(
+class _$NoteEntityImpl extends _NoteEntity {
+  const _$NoteEntityImpl(
       {required this.id, required this.noteBodyText, required this.noteColor})
       : super._();
 
@@ -131,10 +131,10 @@ class _$_NoteEntity extends _NoteEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NoteEntity &&
+            other is _$NoteEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.noteBodyText, noteBodyText) ||
                 other.noteBodyText == noteBodyText) &&
@@ -148,15 +148,15 @@ class _$_NoteEntity extends _NoteEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NoteEntityCopyWith<_$_NoteEntity> get copyWith =>
-      __$$_NoteEntityCopyWithImpl<_$_NoteEntity>(this, _$identity);
+  _$$NoteEntityImplCopyWith<_$NoteEntityImpl> get copyWith =>
+      __$$NoteEntityImplCopyWithImpl<_$NoteEntityImpl>(this, _$identity);
 }
 
 abstract class _NoteEntity extends NoteEntity {
   const factory _NoteEntity(
       {required final UniqueId id,
       required final NoteBodyText noteBodyText,
-      required final NoteColor noteColor}) = _$_NoteEntity;
+      required final NoteColor noteColor}) = _$NoteEntityImpl;
   const _NoteEntity._() : super._();
 
   @override
@@ -167,6 +167,6 @@ abstract class _NoteEntity extends NoteEntity {
   NoteColor get noteColor;
   @override
   @JsonKey(ignore: true)
-  _$$_NoteEntityCopyWith<_$_NoteEntity> get copyWith =>
+  _$$NoteEntityImplCopyWith<_$NoteEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

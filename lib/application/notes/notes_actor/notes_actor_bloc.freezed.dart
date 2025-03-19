@@ -12,7 +12,7 @@ part of 'notes_actor_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NotesActorEvent {
@@ -99,11 +99,11 @@ class _$NotesActorEventCopyWithImpl<$Res, $Val extends NotesActorEvent>
 }
 
 /// @nodoc
-abstract class _$$NoteDeletedCopyWith<$Res>
+abstract class _$$NoteDeletedImplCopyWith<$Res>
     implements $NotesActorEventCopyWith<$Res> {
-  factory _$$NoteDeletedCopyWith(
-          _$NoteDeleted value, $Res Function(_$NoteDeleted) then) =
-      __$$NoteDeletedCopyWithImpl<$Res>;
+  factory _$$NoteDeletedImplCopyWith(
+          _$NoteDeletedImpl value, $Res Function(_$NoteDeletedImpl) then) =
+      __$$NoteDeletedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({NoteEntity note});
@@ -113,11 +113,11 @@ abstract class _$$NoteDeletedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NoteDeletedCopyWithImpl<$Res>
-    extends _$NotesActorEventCopyWithImpl<$Res, _$NoteDeleted>
-    implements _$$NoteDeletedCopyWith<$Res> {
-  __$$NoteDeletedCopyWithImpl(
-      _$NoteDeleted _value, $Res Function(_$NoteDeleted) _then)
+class __$$NoteDeletedImplCopyWithImpl<$Res>
+    extends _$NotesActorEventCopyWithImpl<$Res, _$NoteDeletedImpl>
+    implements _$$NoteDeletedImplCopyWith<$Res> {
+  __$$NoteDeletedImplCopyWithImpl(
+      _$NoteDeletedImpl _value, $Res Function(_$NoteDeletedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$NoteDeletedCopyWithImpl<$Res>
   $Res call({
     Object? note = null,
   }) {
-    return _then(_$NoteDeleted(
+    return _then(_$NoteDeletedImpl(
       null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ class __$$NoteDeletedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NoteDeleted implements NoteDeleted {
-  const _$NoteDeleted(this.note);
+class _$NoteDeletedImpl implements NoteDeleted {
+  const _$NoteDeletedImpl(this.note);
 
   @override
   final NoteEntity note;
@@ -148,10 +148,10 @@ class _$NoteDeleted implements NoteDeleted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NoteDeleted &&
+            other is _$NoteDeletedImpl &&
             (identical(other.note, note) || other.note == note));
   }
 
@@ -161,8 +161,8 @@ class _$NoteDeleted implements NoteDeleted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NoteDeletedCopyWith<_$NoteDeleted> get copyWith =>
-      __$$NoteDeletedCopyWithImpl<_$NoteDeleted>(this, _$identity);
+  _$$NoteDeletedImplCopyWith<_$NoteDeletedImpl> get copyWith =>
+      __$$NoteDeletedImplCopyWithImpl<_$NoteDeletedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -222,13 +222,13 @@ class _$NoteDeleted implements NoteDeleted {
 }
 
 abstract class NoteDeleted implements NotesActorEvent {
-  const factory NoteDeleted(final NoteEntity note) = _$NoteDeleted;
+  const factory NoteDeleted(final NoteEntity note) = _$NoteDeletedImpl;
 
   @override
   NoteEntity get note;
   @override
   @JsonKey(ignore: true)
-  _$$NoteDeletedCopyWith<_$NoteDeleted> get copyWith =>
+  _$$NoteDeletedImplCopyWith<_$NoteDeletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -305,23 +305,25 @@ class _$NotesActorStateCopyWithImpl<$Res, $Val extends NotesActorState>
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$NotesActorStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$NotesActorStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -329,9 +331,9 @@ class _$Initial implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -413,29 +415,29 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements NotesActorState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$ActionInProgressCopyWith<$Res> {
-  factory _$$ActionInProgressCopyWith(
-          _$ActionInProgress value, $Res Function(_$ActionInProgress) then) =
-      __$$ActionInProgressCopyWithImpl<$Res>;
+abstract class _$$ActionInProgressImplCopyWith<$Res> {
+  factory _$$ActionInProgressImplCopyWith(_$ActionInProgressImpl value,
+          $Res Function(_$ActionInProgressImpl) then) =
+      __$$ActionInProgressImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ActionInProgressCopyWithImpl<$Res>
-    extends _$NotesActorStateCopyWithImpl<$Res, _$ActionInProgress>
-    implements _$$ActionInProgressCopyWith<$Res> {
-  __$$ActionInProgressCopyWithImpl(
-      _$ActionInProgress _value, $Res Function(_$ActionInProgress) _then)
+class __$$ActionInProgressImplCopyWithImpl<$Res>
+    extends _$NotesActorStateCopyWithImpl<$Res, _$ActionInProgressImpl>
+    implements _$$ActionInProgressImplCopyWith<$Res> {
+  __$$ActionInProgressImplCopyWithImpl(_$ActionInProgressImpl _value,
+      $Res Function(_$ActionInProgressImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ActionInProgress implements ActionInProgress {
-  const _$ActionInProgress();
+class _$ActionInProgressImpl implements ActionInProgress {
+  const _$ActionInProgressImpl();
 
   @override
   String toString() {
@@ -443,9 +445,9 @@ class _$ActionInProgress implements ActionInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ActionInProgress);
+        (other.runtimeType == runtimeType && other is _$ActionInProgressImpl);
   }
 
   @override
@@ -527,29 +529,29 @@ class _$ActionInProgress implements ActionInProgress {
 }
 
 abstract class ActionInProgress implements NotesActorState {
-  const factory ActionInProgress() = _$ActionInProgress;
+  const factory ActionInProgress() = _$ActionInProgressImpl;
 }
 
 /// @nodoc
-abstract class _$$DeleteSuccessCopyWith<$Res> {
-  factory _$$DeleteSuccessCopyWith(
-          _$DeleteSuccess value, $Res Function(_$DeleteSuccess) then) =
-      __$$DeleteSuccessCopyWithImpl<$Res>;
+abstract class _$$DeleteSuccessImplCopyWith<$Res> {
+  factory _$$DeleteSuccessImplCopyWith(
+          _$DeleteSuccessImpl value, $Res Function(_$DeleteSuccessImpl) then) =
+      __$$DeleteSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DeleteSuccessCopyWithImpl<$Res>
-    extends _$NotesActorStateCopyWithImpl<$Res, _$DeleteSuccess>
-    implements _$$DeleteSuccessCopyWith<$Res> {
-  __$$DeleteSuccessCopyWithImpl(
-      _$DeleteSuccess _value, $Res Function(_$DeleteSuccess) _then)
+class __$$DeleteSuccessImplCopyWithImpl<$Res>
+    extends _$NotesActorStateCopyWithImpl<$Res, _$DeleteSuccessImpl>
+    implements _$$DeleteSuccessImplCopyWith<$Res> {
+  __$$DeleteSuccessImplCopyWithImpl(
+      _$DeleteSuccessImpl _value, $Res Function(_$DeleteSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DeleteSuccess implements DeleteSuccess {
-  const _$DeleteSuccess();
+class _$DeleteSuccessImpl implements DeleteSuccess {
+  const _$DeleteSuccessImpl();
 
   @override
   String toString() {
@@ -557,9 +559,9 @@ class _$DeleteSuccess implements DeleteSuccess {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DeleteSuccess);
+        (other.runtimeType == runtimeType && other is _$DeleteSuccessImpl);
   }
 
   @override
@@ -641,14 +643,14 @@ class _$DeleteSuccess implements DeleteSuccess {
 }
 
 abstract class DeleteSuccess implements NotesActorState {
-  const factory DeleteSuccess() = _$DeleteSuccess;
+  const factory DeleteSuccess() = _$DeleteSuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$DeleteFailureCopyWith<$Res> {
-  factory _$$DeleteFailureCopyWith(
-          _$DeleteFailure value, $Res Function(_$DeleteFailure) then) =
-      __$$DeleteFailureCopyWithImpl<$Res>;
+abstract class _$$DeleteFailureImplCopyWith<$Res> {
+  factory _$$DeleteFailureImplCopyWith(
+          _$DeleteFailureImpl value, $Res Function(_$DeleteFailureImpl) then) =
+      __$$DeleteFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({NoteFailure failure});
 
@@ -656,11 +658,11 @@ abstract class _$$DeleteFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$DeleteFailureCopyWithImpl<$Res>
-    extends _$NotesActorStateCopyWithImpl<$Res, _$DeleteFailure>
-    implements _$$DeleteFailureCopyWith<$Res> {
-  __$$DeleteFailureCopyWithImpl(
-      _$DeleteFailure _value, $Res Function(_$DeleteFailure) _then)
+class __$$DeleteFailureImplCopyWithImpl<$Res>
+    extends _$NotesActorStateCopyWithImpl<$Res, _$DeleteFailureImpl>
+    implements _$$DeleteFailureImplCopyWith<$Res> {
+  __$$DeleteFailureImplCopyWithImpl(
+      _$DeleteFailureImpl _value, $Res Function(_$DeleteFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -668,7 +670,7 @@ class __$$DeleteFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$DeleteFailure(
+    return _then(_$DeleteFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -687,8 +689,8 @@ class __$$DeleteFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteFailure implements DeleteFailure {
-  const _$DeleteFailure(this.failure);
+class _$DeleteFailureImpl implements DeleteFailure {
+  const _$DeleteFailureImpl(this.failure);
 
   @override
   final NoteFailure failure;
@@ -699,10 +701,10 @@ class _$DeleteFailure implements DeleteFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeleteFailure &&
+            other is _$DeleteFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -712,8 +714,8 @@ class _$DeleteFailure implements DeleteFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DeleteFailureCopyWith<_$DeleteFailure> get copyWith =>
-      __$$DeleteFailureCopyWithImpl<_$DeleteFailure>(this, _$identity);
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
+      __$$DeleteFailureImplCopyWithImpl<_$DeleteFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -791,10 +793,10 @@ class _$DeleteFailure implements DeleteFailure {
 }
 
 abstract class DeleteFailure implements NotesActorState {
-  const factory DeleteFailure(final NoteFailure failure) = _$DeleteFailure;
+  const factory DeleteFailure(final NoteFailure failure) = _$DeleteFailureImpl;
 
   NoteFailure get failure;
   @JsonKey(ignore: true)
-  _$$DeleteFailureCopyWith<_$DeleteFailure> get copyWith =>
+  _$$DeleteFailureImplCopyWith<_$DeleteFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,0 +1,1 @@
+C:\dev\mine\DDD_app\build\app\intermediates\cxx\Debug\2233176j\obj\arm64-v8a

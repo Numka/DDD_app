@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../../../../application/notes/notes_watcher/notes_watcher_bloc.dart';
 import '../../../../domain/notes/value_objects.dart';

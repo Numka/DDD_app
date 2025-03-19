@@ -6,14 +6,15 @@ part of 'note_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NoteDto _$$_NoteDtoFromJson(Map<String, dynamic> json) => _$_NoteDto(
+_$NoteDtoImpl _$$NoteDtoImplFromJson(Map<String, dynamic> json) =>
+    _$NoteDtoImpl(
       body: json['body'] as String,
-      color: json['color'] as int,
+      color: (json['color'] as num).toInt(),
       serverTimeStamp: const ServerTimestampConverter()
           .fromJson(json['serverTimeStamp'] as Object),
     );
 
-Map<String, dynamic> _$$_NoteDtoToJson(_$_NoteDto instance) =>
+Map<String, dynamic> _$$NoteDtoImplToJson(_$NoteDtoImpl instance) =>
     <String, dynamic>{
       'body': instance.body,
       'color': instance.color,

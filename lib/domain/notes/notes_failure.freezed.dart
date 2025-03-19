@@ -12,7 +12,7 @@ part of 'notes_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$NoteFailure {
@@ -94,25 +94,25 @@ class _$NoteFailureCopyWithImpl<$Res, $Val extends NoteFailure>
 }
 
 /// @nodoc
-abstract class _$$UnexpectedCopyWith<$Res> {
-  factory _$$UnexpectedCopyWith(
-          _$Unexpected value, $Res Function(_$Unexpected) then) =
-      __$$UnexpectedCopyWithImpl<$Res>;
+abstract class _$$UnexpectedImplCopyWith<$Res> {
+  factory _$$UnexpectedImplCopyWith(
+          _$UnexpectedImpl value, $Res Function(_$UnexpectedImpl) then) =
+      __$$UnexpectedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnexpectedCopyWithImpl<$Res>
-    extends _$NoteFailureCopyWithImpl<$Res, _$Unexpected>
-    implements _$$UnexpectedCopyWith<$Res> {
-  __$$UnexpectedCopyWithImpl(
-      _$Unexpected _value, $Res Function(_$Unexpected) _then)
+class __$$UnexpectedImplCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res, _$UnexpectedImpl>
+    implements _$$UnexpectedImplCopyWith<$Res> {
+  __$$UnexpectedImplCopyWithImpl(
+      _$UnexpectedImpl _value, $Res Function(_$UnexpectedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Unexpected implements Unexpected {
-  const _$Unexpected();
+class _$UnexpectedImpl implements Unexpected {
+  const _$UnexpectedImpl();
 
   @override
   String toString() {
@@ -120,9 +120,9 @@ class _$Unexpected implements Unexpected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Unexpected);
+        (other.runtimeType == runtimeType && other is _$UnexpectedImpl);
   }
 
   @override
@@ -211,29 +211,31 @@ class _$Unexpected implements Unexpected {
 }
 
 abstract class Unexpected implements NoteFailure {
-  const factory Unexpected() = _$Unexpected;
+  const factory Unexpected() = _$UnexpectedImpl;
 }
 
 /// @nodoc
-abstract class _$$InsufficientPermissionsCopyWith<$Res> {
-  factory _$$InsufficientPermissionsCopyWith(_$InsufficientPermissions value,
-          $Res Function(_$InsufficientPermissions) then) =
-      __$$InsufficientPermissionsCopyWithImpl<$Res>;
+abstract class _$$InsufficientPermissionsImplCopyWith<$Res> {
+  factory _$$InsufficientPermissionsImplCopyWith(
+          _$InsufficientPermissionsImpl value,
+          $Res Function(_$InsufficientPermissionsImpl) then) =
+      __$$InsufficientPermissionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InsufficientPermissionsCopyWithImpl<$Res>
-    extends _$NoteFailureCopyWithImpl<$Res, _$InsufficientPermissions>
-    implements _$$InsufficientPermissionsCopyWith<$Res> {
-  __$$InsufficientPermissionsCopyWithImpl(_$InsufficientPermissions _value,
-      $Res Function(_$InsufficientPermissions) _then)
+class __$$InsufficientPermissionsImplCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res, _$InsufficientPermissionsImpl>
+    implements _$$InsufficientPermissionsImplCopyWith<$Res> {
+  __$$InsufficientPermissionsImplCopyWithImpl(
+      _$InsufficientPermissionsImpl _value,
+      $Res Function(_$InsufficientPermissionsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InsufficientPermissions implements InsufficientPermissions {
-  const _$InsufficientPermissions();
+class _$InsufficientPermissionsImpl implements InsufficientPermissions {
+  const _$InsufficientPermissionsImpl();
 
   @override
   String toString() {
@@ -241,10 +243,10 @@ class _$InsufficientPermissions implements InsufficientPermissions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InsufficientPermissions);
+            other is _$InsufficientPermissionsImpl);
   }
 
   @override
@@ -333,29 +335,29 @@ class _$InsufficientPermissions implements InsufficientPermissions {
 }
 
 abstract class InsufficientPermissions implements NoteFailure {
-  const factory InsufficientPermissions() = _$InsufficientPermissions;
+  const factory InsufficientPermissions() = _$InsufficientPermissionsImpl;
 }
 
 /// @nodoc
-abstract class _$$UnableToCreateCopyWith<$Res> {
-  factory _$$UnableToCreateCopyWith(
-          _$UnableToCreate value, $Res Function(_$UnableToCreate) then) =
-      __$$UnableToCreateCopyWithImpl<$Res>;
+abstract class _$$UnableToCreateImplCopyWith<$Res> {
+  factory _$$UnableToCreateImplCopyWith(_$UnableToCreateImpl value,
+          $Res Function(_$UnableToCreateImpl) then) =
+      __$$UnableToCreateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnableToCreateCopyWithImpl<$Res>
-    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToCreate>
-    implements _$$UnableToCreateCopyWith<$Res> {
-  __$$UnableToCreateCopyWithImpl(
-      _$UnableToCreate _value, $Res Function(_$UnableToCreate) _then)
+class __$$UnableToCreateImplCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToCreateImpl>
+    implements _$$UnableToCreateImplCopyWith<$Res> {
+  __$$UnableToCreateImplCopyWithImpl(
+      _$UnableToCreateImpl _value, $Res Function(_$UnableToCreateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnableToCreate implements UnableToCreate {
-  const _$UnableToCreate();
+class _$UnableToCreateImpl implements UnableToCreate {
+  const _$UnableToCreateImpl();
 
   @override
   String toString() {
@@ -363,9 +365,9 @@ class _$UnableToCreate implements UnableToCreate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnableToCreate);
+        (other.runtimeType == runtimeType && other is _$UnableToCreateImpl);
   }
 
   @override
@@ -454,29 +456,29 @@ class _$UnableToCreate implements UnableToCreate {
 }
 
 abstract class UnableToCreate implements NoteFailure {
-  const factory UnableToCreate() = _$UnableToCreate;
+  const factory UnableToCreate() = _$UnableToCreateImpl;
 }
 
 /// @nodoc
-abstract class _$$UnableToUpdateCopyWith<$Res> {
-  factory _$$UnableToUpdateCopyWith(
-          _$UnableToUpdate value, $Res Function(_$UnableToUpdate) then) =
-      __$$UnableToUpdateCopyWithImpl<$Res>;
+abstract class _$$UnableToUpdateImplCopyWith<$Res> {
+  factory _$$UnableToUpdateImplCopyWith(_$UnableToUpdateImpl value,
+          $Res Function(_$UnableToUpdateImpl) then) =
+      __$$UnableToUpdateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnableToUpdateCopyWithImpl<$Res>
-    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToUpdate>
-    implements _$$UnableToUpdateCopyWith<$Res> {
-  __$$UnableToUpdateCopyWithImpl(
-      _$UnableToUpdate _value, $Res Function(_$UnableToUpdate) _then)
+class __$$UnableToUpdateImplCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToUpdateImpl>
+    implements _$$UnableToUpdateImplCopyWith<$Res> {
+  __$$UnableToUpdateImplCopyWithImpl(
+      _$UnableToUpdateImpl _value, $Res Function(_$UnableToUpdateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnableToUpdate implements UnableToUpdate {
-  const _$UnableToUpdate();
+class _$UnableToUpdateImpl implements UnableToUpdate {
+  const _$UnableToUpdateImpl();
 
   @override
   String toString() {
@@ -484,9 +486,9 @@ class _$UnableToUpdate implements UnableToUpdate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnableToUpdate);
+        (other.runtimeType == runtimeType && other is _$UnableToUpdateImpl);
   }
 
   @override
@@ -575,29 +577,29 @@ class _$UnableToUpdate implements UnableToUpdate {
 }
 
 abstract class UnableToUpdate implements NoteFailure {
-  const factory UnableToUpdate() = _$UnableToUpdate;
+  const factory UnableToUpdate() = _$UnableToUpdateImpl;
 }
 
 /// @nodoc
-abstract class _$$UnableToDeleteCopyWith<$Res> {
-  factory _$$UnableToDeleteCopyWith(
-          _$UnableToDelete value, $Res Function(_$UnableToDelete) then) =
-      __$$UnableToDeleteCopyWithImpl<$Res>;
+abstract class _$$UnableToDeleteImplCopyWith<$Res> {
+  factory _$$UnableToDeleteImplCopyWith(_$UnableToDeleteImpl value,
+          $Res Function(_$UnableToDeleteImpl) then) =
+      __$$UnableToDeleteImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UnableToDeleteCopyWithImpl<$Res>
-    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToDelete>
-    implements _$$UnableToDeleteCopyWith<$Res> {
-  __$$UnableToDeleteCopyWithImpl(
-      _$UnableToDelete _value, $Res Function(_$UnableToDelete) _then)
+class __$$UnableToDeleteImplCopyWithImpl<$Res>
+    extends _$NoteFailureCopyWithImpl<$Res, _$UnableToDeleteImpl>
+    implements _$$UnableToDeleteImplCopyWith<$Res> {
+  __$$UnableToDeleteImplCopyWithImpl(
+      _$UnableToDeleteImpl _value, $Res Function(_$UnableToDeleteImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UnableToDelete implements UnableToDelete {
-  const _$UnableToDelete();
+class _$UnableToDeleteImpl implements UnableToDelete {
+  const _$UnableToDeleteImpl();
 
   @override
   String toString() {
@@ -605,9 +607,9 @@ class _$UnableToDelete implements UnableToDelete {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UnableToDelete);
+        (other.runtimeType == runtimeType && other is _$UnableToDeleteImpl);
   }
 
   @override
@@ -696,5 +698,5 @@ class _$UnableToDelete implements UnableToDelete {
 }
 
 abstract class UnableToDelete implements NoteFailure {
-  const factory UnableToDelete() = _$UnableToDelete;
+  const factory UnableToDelete() = _$UnableToDeleteImpl;
 }

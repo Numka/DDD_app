@@ -9,57 +9,6 @@
 
 part of 'router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    NotesOverviewRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const NotesOverviewPage(),
-      );
-    },
-    NoteFormRoute.name: (routeData) {
-      final args = routeData.argsAs<NoteFormRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: NoteFormPage(
-          key: args.key,
-          editedNote: args.editedNote,
-        ),
-      );
-    },
-    SignInRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SignInPage(),
-      );
-    },
-    SplashRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const SplashPage(),
-      );
-    },
-  };
-}
-
-/// generated route for
-/// [NotesOverviewPage]
-class NotesOverviewRoute extends PageRouteInfo<void> {
-  const NotesOverviewRoute({List<PageRouteInfo>? children})
-      : super(
-          NotesOverviewRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NotesOverviewRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
 /// generated route for
 /// [NoteFormPage]
 class NoteFormRoute extends PageRouteInfo<NoteFormRouteArgs> {
@@ -78,8 +27,16 @@ class NoteFormRoute extends PageRouteInfo<NoteFormRouteArgs> {
 
   static const String name = 'NoteFormRoute';
 
-  static const PageInfo<NoteFormRouteArgs> page =
-      PageInfo<NoteFormRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<NoteFormRouteArgs>();
+      return NoteFormPage(
+        key: args.key,
+        editedNote: args.editedNote,
+      );
+    },
+  );
 }
 
 class NoteFormRouteArgs {
@@ -99,6 +56,25 @@ class NoteFormRouteArgs {
 }
 
 /// generated route for
+/// [NotesOverviewPage]
+class NotesOverviewRoute extends PageRouteInfo<void> {
+  const NotesOverviewRoute({List<PageRouteInfo>? children})
+      : super(
+          NotesOverviewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotesOverviewRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const NotesOverviewPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SignInPage]
 class SignInRoute extends PageRouteInfo<void> {
   const SignInRoute({List<PageRouteInfo>? children})
@@ -109,7 +85,12 @@ class SignInRoute extends PageRouteInfo<void> {
 
   static const String name = 'SignInRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SignInPage();
+    },
+  );
 }
 
 /// generated route for
@@ -123,5 +104,10 @@ class SplashRoute extends PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SplashPage();
+    },
+  );
 }
