@@ -35,7 +35,10 @@ class NoteCard extends StatelessWidget {
             children: [
               Text(
                 note.noteBodyText.getOrCrash(),
-                style: const TextStyle(fontSize: 18),
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                ),
               ),
             ],
           ),
@@ -44,8 +47,7 @@ class NoteCard extends StatelessWidget {
     );
   }
 
-  void _showDelectionDialog(
-      BuildContext context, NotesActorBloc notesActorBloc) {
+  void _showDelectionDialog(BuildContext context, NotesActorBloc notesActorBloc) {
     showDialog(
       context: context,
       builder: (context) {

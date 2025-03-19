@@ -74,10 +74,12 @@ class _ColorPickerState extends State<ColorPicker> {
                       widget.notesWatcherBloc.add(const NotesWatcherEvent.startedWatching());
                       Navigator.pop(context);
                     },
-                    child: const Material(
-                      color: Color(0xFFeaddff),
-                      shape: CircleBorder(),
-                      child: SizedBox(
+                    child: Material(
+                      color: Theme.of(context)
+                          .floatingActionButtonTheme
+                          .backgroundColor, //Color(0xFF474C56), //Color(0xFFeaddff),
+                      shape: const CircleBorder(),
+                      child: const SizedBox(
                         width: 50,
                         height: 50,
                         child: Center(
@@ -96,14 +98,18 @@ class _ColorPickerState extends State<ColorPicker> {
           const SizedBox(
             height: 8,
           ),
-          const Card(
-            color: Color(0xFFeaddff),
+          Card(
+            color: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+            //const Color(0xFF474C56),
             elevation: 4,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Filter by color',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Theme.of(context).textTheme.titleMedium!.color,
+                ),
               ),
             ),
           ),
