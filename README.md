@@ -7,9 +7,9 @@
 <br> Notes list / Список заметок
 <br> <img src="https://github.com/Numka/DDD_app/assets/26344390/9b6027ad-bf33-4bac-a340-14649244f073" width="300"> 
 
-An application that follows Domain Driven Design and clean architecture principles. Some would say architecture is a bit too clean, it's on purpose, to push the limits, even if some design choices are unnecessary.
+An application that follows Domain Driven Design and clean architecture principles. There are also elements of functional programming
 
-Приложение, которое следует принципам Domain Driven Design и чистой архитектуры.
+Приложение, которое следует принципам Domain Driven Design и чистой архитектуры. Также присутсвуют элементы функционального программирования
 
 
 ## Downloads
