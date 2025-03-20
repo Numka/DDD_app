@@ -29,6 +29,7 @@ class _BodyFieldState extends State<BodyField> {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: TextFormField(
+          style: Theme.of(context).textTheme.bodyLarge,
           controller: textEditingController,
           decoration: const InputDecoration(
             labelText: 'Note',
@@ -36,14 +37,11 @@ class _BodyFieldState extends State<BodyField> {
           minLines: 7,
           maxLines: null,
           maxLength: NoteBodyText.maxLength,
-          onChanged: (value) => context
-              .read<NotesFormBloc>()
-              .add(NotesFormEvent.bodyUpdated(value)),
+          onChanged: (value) => context.read<NotesFormBloc>().add(NotesFormEvent.bodyUpdated(value)),
           validator: (_) => fieldValue.fold(
             (failure) => failure.maybeMap(
               emptyTextBody: (f) => 'Cannot be empty',
-              maxLengthExceeded: (f) =>
-                  'Exceeding length, max: ${f.failedValue}',
+              maxLengthExceeded: (f) => 'Exceeding length, max: ${f.failedValue}',
               orElse: () => '',
             ),
             (r) => null,

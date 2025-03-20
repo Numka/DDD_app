@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/app/cubit/theme_cubit.dart';
 import '../../application/auth/auth_bloc.dart';
 import '../../injection.dart';
 import '../routes/router.dart';
@@ -11,6 +12,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appRouter = getIt<AppRouter>();
+    //final themeCubit = context.read<ThemeCubit>();
 
     return MultiBlocProvider(
       providers: [
@@ -18,23 +20,15 @@ class AppWidget extends StatelessWidget {
           create: (BuildContext context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         )
       ],
-      child: MaterialApp.router(
-        title: 'Notes',
-        routerConfig: appRouter.config(),
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData.light(),
-        // theme: ThemeData.light().copyWith(
-        //   colorScheme: ThemeData().colorScheme.copyWith(
-        //         primary: const Color.fromRGBO(10, 86, 136, 1),
-        //         secondary:
-        //             const Color.fromRGBO(243, 149, 79, 1), // 243, 149, 79
-        //       ),
-        //   inputDecorationTheme: InputDecorationTheme(
-        //     border: OutlineInputBorder(
-        //       borderRadius: BorderRadius.circular(8),
-        //     ),
-        //   ),
-        // ),
+      child: BlocBuilder<ThemeCubit, ThemeData>(
+        builder: (context, theme) {
+          return MaterialApp.router(
+            title: 'Notes',
+            routerConfig: appRouter.config(),
+            debugShowCheckedModeBanner: false,
+            theme: theme,
+          );
+        },
       ),
     );
   }

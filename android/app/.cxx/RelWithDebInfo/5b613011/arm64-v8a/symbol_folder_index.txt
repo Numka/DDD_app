@@ -1,0 +1,1 @@
+C:\dev\mine\DDD_app\build\app\intermediates\cxx\RelWithDebInfo\5b613011\obj\arm64-v8a
