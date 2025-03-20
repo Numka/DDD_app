@@ -24,4 +24,4 @@ An application that follows Domain Driven Design and clean architecture principl
 
 ## Downloads
 
-apk - [...](https://drive.google.com/file/d/1WCSf6jTWsOaDmaQt5uqSyLRsnEj8WWb7/view?usp=sharing)
+apk - [GDrive link](https://drive.google.com/file/d/1WCSf6jTWsOaDmaQt5uqSyLRsnEj8WWb7/view?usp=sharing)
