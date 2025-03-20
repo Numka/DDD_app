@@ -7,6 +7,7 @@ A color note app with realtime syncronization and filtering
 - [x] Create notes.
 - [x] Update/Delete notes.
 - [x] Filter your notes
+- [x] Dark mode
 
 An application that follows Domain Driven Design and clean architecture principles. There are also elements of functional programming
 
